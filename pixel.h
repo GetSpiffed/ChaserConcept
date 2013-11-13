@@ -13,17 +13,23 @@ class pixel
 {
 public:
 	pixel(void);
-	pixel(rgb color, int position, int direction);
+	pixel(rgb colorDest, rgb colorSrc, int position, int direction, int jumpInterval);
 	~pixel(void);
 
 protected:
-	//Color of the pixel
-	rgb _color;
+	//Color of the pixel to which it jumps to
+	rgb _colorDest;
+
+	//Color of the pixel from which it jumps from
+	rgb _colorSrc;
 
 	//Direction the pixel moves 1 or -1
 	int _direction;
 
 	//position of the pixel
 	int _position;
+
+	//How much pixels to jump in on the strip
+	int _jumpInterval;
 };
 

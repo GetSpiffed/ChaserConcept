@@ -10,14 +10,18 @@ chaser::chaser(void)
 {
 }
 
-chaser::chaser(rgb stripMask, pixel pixels)
+chaser::chaser(int stripLength, pixel *pixels)
 {
-	_stripMask = stripMask;
+	_stripMask = new rgb[stripLength];
 	_pixels = _pixels;
 }
 
 void chaser::step(void)
 {
+	for (int i = 0; i < (sizeof(pixel) / sizeof(*_pixels)); i++)
+	{
+		
+	}
 }
 
 chaser::~chaser(void)

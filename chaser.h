@@ -12,16 +12,28 @@
 class chaser
 {
 public:
+	/********************************************************************
+	* Constructors
+	********************************************************************/
 	chaser(void);
-	chaser(rgb stripMask, pixel pixels);
+	chaser(int stripLength, pixel *pixels);
 
+	/********************************************************************
+	* Methods
+	********************************************************************/
 	void step(void);
 
+	/********************************************************************
+	* Destructors
+	********************************************************************/
 	~chaser(void);
 
 protected:
-	rgb _stripMask;
-	pixel _pixels;
+	//pointer to the array on witch we draw the pixels
+	rgb *_stripMask; 
+
+	//pointer to array with the moving pixels
+	pixel *_pixels;
 };
 
 #endif // __MYCLASS_H_INCLUDED__ 

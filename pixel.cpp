@@ -5,11 +5,13 @@ pixel::pixel(void)
 {
 }
 
-pixel::pixel(rgb color, int position, int direction)
+pixel::pixel(rgb colorDest, rgb colorSrc, int position, int direction, int jumpInterval)
 {
-	_color = color;
+	_colorDest = colorDest;
+	_colorSrc = colorSrc;
 	_position = position;
 	_direction = direction;
+	_jumpInterval = jumpInterval;
 }
 
 
