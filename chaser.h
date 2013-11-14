@@ -15,18 +15,18 @@ public:
 	/********************************************************************
 	* Constructors
 	********************************************************************/
-	chaser(void);
-	chaser(int stripLength, pixel *pixels);
+	chaser::chaser(void);
+	chaser::chaser(int stripLength, pixel *pixels);
 
 	/********************************************************************
 	* Methods
 	********************************************************************/
-	void step(void);
+	void chaser::step(void);
 
 	/********************************************************************
 	* Destructors
 	********************************************************************/
-	~chaser(void);
+	chaser::~chaser(void);
 
 protected:
 	//pointer to the array on witch we draw the pixels
@@ -34,6 +34,8 @@ protected:
 
 	//pointer to array with the moving pixels
 	pixel *_pixels;
+
+	void chaser::jump(pixel &currentPixel);
 };
 
 #endif // __MYCLASS_H_INCLUDED__ 

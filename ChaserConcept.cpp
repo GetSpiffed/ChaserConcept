@@ -5,6 +5,7 @@
 #include "ChaserConcept.h"
 #include "rgb.h"
 #include "pixel.h"
+#include "chaser.h"
 #include <iostream>
 #include <string>
 
@@ -22,13 +23,6 @@ using namespace std;
 int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 {
 	int nRetCode = 0;
-	pixel cp = ::pixel();
-
-
-
-	cout<<"HEY, you, I'm alive! Oh, and Hello World!\n";
-  cin.get();
-
 	HMODULE hModule = ::GetModuleHandle(NULL);
 
 	if (hModule != NULL)
@@ -42,8 +36,28 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 		}
 		else
 		{
-			// TODO: code your application's behavior here.
+			pixel pixels[2];
+			_tprintf(_T("Created Pixels"));
 
+			//First pixel
+			pixels[0].colorDest = new rgb(100, 0, 0);
+			pixels[0].colorSrc = new rgb(0, 0, 0);
+			pixels[0].direction = 1;//going forward
+			pixels[0].jumpInterval = 1;
+			pixels[0].position = -1; //one before the start of the strip
+			_tprintf(_T("Pixels[0] initialized"));
+
+			//second pixel
+			pixels[1].colorDest = new rgb(100, 0, 0);
+			pixels[1].colorSrc = new rgb(0, 0, 0);
+			pixels[1].direction = -1; //going backward
+			pixels[1].jumpInterval = 1;
+			pixels[1].position = 5; //halfway the strip
+			_tprintf(_T("Pixels[1] initialized"));
+
+			chaser csr(10, pixels);
+			csr.step();
+			_tprintf(_T("Steped"));
 
 		}
 	}
