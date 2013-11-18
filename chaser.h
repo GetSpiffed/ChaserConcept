@@ -16,7 +16,7 @@ public:
 	* Constructors
 	********************************************************************/
 	chaser::chaser(void);
-	chaser::chaser(int stripLength, pixel *pixels);
+	chaser::chaser(int stripLength, pixel *pixels, int pixelCount);
 
 	/********************************************************************
 	* Methods
@@ -34,6 +34,8 @@ protected:
 
 	//pointer to array with the moving pixels
 	pixel *_pixels;
+
+	int _pixelCount;
 
 	void chaser::jump(pixel &currentPixel);
 };
