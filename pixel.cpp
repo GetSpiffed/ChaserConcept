@@ -5,13 +5,14 @@ pixel::pixel(void)
 {
 }
 
-pixel::pixel(rgb *colorDest, rgb *colorSrc, int position, int direction, int jumpInterval)
+pixel::pixel(rgb *primaryColor, rgb *secondairyColor, int position, int direction, int jumpInterval)
 {
-	colorDest = colorDest;
-	colorSrc = colorSrc;
+	primaryColor = primaryColor;
+	secondairyColor = secondairyColor;
 	position = position;
 	direction = direction;
 	jumpInterval = jumpInterval;
+	prevPosition = position + (((-1)*direction)*jumpInterval);
 }
 
 
