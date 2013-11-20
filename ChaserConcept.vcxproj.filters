@@ -39,6 +39,9 @@
     <ClInclude Include="pixel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cppfix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

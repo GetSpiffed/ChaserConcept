@@ -8,6 +8,7 @@
 #include "rgb.h"
 #include "pixel.h"
 
+
 #pragma once
 class chaser
 {
@@ -15,18 +16,18 @@ public:
 	/********************************************************************
 	* Constructors
 	********************************************************************/
-	chaser::chaser(void);
-	chaser::chaser(int stripLength, pixel *pixels, int pixelCount);
+	chaser(void);
+	chaser(int stripLength, pixel *pixels, int pixelCount);
 
 	/********************************************************************
 	* Methods
 	********************************************************************/
-	void chaser::step(void);
+	void step(void);
 
 	/********************************************************************
 	* Destructors
 	********************************************************************/
-	chaser::~chaser(void);
+	~chaser(void);
 
 	//pointer to the array on witch we draw the pixels
 	rgb *stripMask;
@@ -41,8 +42,8 @@ protected:
 
 	int _stripLength;
 
-	void chaser::jump(pixel &currentPixel);
-	void chaser::setStripMask(pixel &currentPixel);
+	void jump(pixel &currentPixel);
+	void setStripMask(pixel &currentPixel);
 };
 
 #endif // __MYCLASS_H_INCLUDED__ 

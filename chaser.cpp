@@ -6,14 +6,23 @@
 #include "pixel.h"
 
 
+
 chaser::chaser(void)
 {
 }
 
 chaser::chaser(int stripLength, pixel *pixels, int pixelCount)
 {
-	stripMask = new rgb[_stripLength];
 	_stripLength = stripLength;
+	stripMask = new rgb[_stripLength];
+
+	for (int i = 0; i < _stripLength; i++)
+	{
+		stripMask[i].red = 0;
+		stripMask[i].green = 0;
+		stripMask[i].blue = 0;
+	}
+
 	_pixelCount = pixelCount;
 	_pixels = new pixel[_pixelCount];
 
@@ -44,17 +53,16 @@ void chaser::step(void)
 
 void chaser::jump(pixel &currentPixel)
 {
-	//If outside boundries, revert direction
-	if (currentPixel.position < 0 && currentPixel.position >= _stripLength)
-		currentPixel.direction = currentPixel.direction*-1;
-
 	//store current location as prevLocation
 	currentPixel.prevPosition = currentPixel.position;
 
 	//Set new location
 	currentPixel.position += currentPixel.direction*currentPixel.jumpInterval;
 
-	//
+	//If outside boundries, revert direction
+	if (currentPixel.position < 0 || currentPixel.position >= _stripLength)
+		currentPixel.direction = currentPixel.direction*-1;
+
 	setStripMask(currentPixel);
 }
 
@@ -62,7 +70,7 @@ void chaser::jump(pixel &currentPixel)
 void chaser::setStripMask(pixel &currentPixel)
 {
 	//If position within boundries, set stripMask
-	if (currentPixel.position > 0 && currentPixel.position<_stripLength)
+	if (currentPixel.position >= 0 && currentPixel.position < _stripLength)
 	{
 		//Draw main pixel
 		stripMask[currentPixel.position].red = currentPixel.primaryColor->red;
@@ -72,7 +80,7 @@ void chaser::setStripMask(pixel &currentPixel)
 
 
 	//If prevPosition within boundries, set stripMask
-	if (currentPixel.prevPosition>0 && currentPixel.prevPosition < _stripLength)
+	if (currentPixel.prevPosition >= 0 && currentPixel.prevPosition < _stripLength)
 	{
 		//Draw prevPosition
 		stripMask[currentPixel.prevPosition].red = currentPixel.secondairyColor->red;

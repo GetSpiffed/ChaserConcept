@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="chaser.h" />
     <ClInclude Include="ChaserConcept.h" />
+    <ClInclude Include="cppfix.h" />
     <ClInclude Include="pixel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="rgb.h" />
