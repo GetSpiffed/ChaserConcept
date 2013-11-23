@@ -1,14 +1,15 @@
 #pragma once
+#include "stdint.h"
+
 struct rgb
 {
-	rgb(int red, int green, int blue)
-	{}
+public:
+	rgb(uint8_t red, uint8_t green, uint8_t blue);
 
-	rgb()		: green(0), red(0), blue(0)
-	{}
+	rgb();
 
-	int green;
-	int red;
-	int blue;
+	uint8_t green;
+	uint8_t red;
+	uint8_t blue;
 };
 

@@ -40,16 +40,18 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 			_tprintf(_T("Created Pixels\n"));
 
 			//First pixel
-			pixels[0].primaryColor = new rgb(100, 0, 0);
-			pixels[0].secondairyColor = new rgb(0, 0, 0);
+			pixels[0].primaryColor->red = 100;
+			pixels[0].primaryColor->green = 0;
+			pixels[0].primaryColor->blue = 0;
 			pixels[0].direction = 1;//going forward
 			pixels[0].jumpInterval = 1;
 			pixels[0].position = -1; //one before the start of the strip
 			_tprintf(_T("Pixels[0] initialized\n"));
 
 			//second pixel
-			pixels[1].primaryColor = new rgb(100, 0, 0);
-			pixels[1].secondairyColor = new rgb(0, 0, 0);
+			pixels[1].primaryColor->red = 100;
+			pixels[1].primaryColor->green = 0;
+			pixels[1].primaryColor->blue = 0;
 			pixels[1].direction = -1; //going backward
 			pixels[1].jumpInterval = 1;
 			pixels[1].position = 5; //halfway the strip

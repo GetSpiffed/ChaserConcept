@@ -32,6 +32,12 @@ public:
 	//previous position of the pixel
 	int prevPosition;
 
+	//ticks to wait before moving
+	int waitTicks;
+
+	//count how many ticks sre waited
+	int waitCounter;
+
 	//How much pixels to jump in on the strip
 	int jumpInterval;
 protected:

@@ -32,11 +32,11 @@ public:
 	//pointer to the array on witch we draw the pixels
 	rgb *stripMask;
 
+	//pointer to array with the moving pixels
+	pixel *_pixels;
 
 protected:
 
-	//pointer to array with the moving pixels
-	pixel *_pixels;
 
 	int _pixelCount;
 

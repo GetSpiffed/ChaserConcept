@@ -5,9 +5,6 @@
 #include "rgb.h"
 #include "pixel.h"
 
-
-
-
 chaser::chaser(void)
 {
 }
@@ -54,17 +51,31 @@ void chaser::step(void)
 
 void chaser::jump(pixel &currentPixel)
 {
-	//store current location as prevLocation
-	currentPixel.prevPosition = currentPixel.position;
+	if ((currentPixel.position < 0 || currentPixel.position >= _stripLength) && currentPixel.waitCounter != currentPixel.waitTicks)
+	{
+		currentPixel.waitCounter++;
+	}
+	else
+	{
+		if (currentPixel.waitCounter == currentPixel.waitTicks)
+		{
+			//reset wait
+			currentPixel.waitCounter = 0;
+			currentPixel.waitTicks = 5;
 
-	//Set new location
-	currentPixel.position += currentPixel.direction*currentPixel.jumpInterval;
+		}
+		//store current location as prevLocation
+		currentPixel.prevPosition = currentPixel.position;
 
-	//If outside boundries, revert direction
-	if (currentPixel.position < 0 || currentPixel.position >= _stripLength)
-		currentPixel.direction = currentPixel.direction*-1;
+		//Set new location
+		currentPixel.position += currentPixel.direction*currentPixel.jumpInterval;
 
-	setStripMask(currentPixel);
+		//If outside boundries, revert direction
+		if (currentPixel.position < 0 || currentPixel.position >= _stripLength)
+			currentPixel.direction = currentPixel.direction*-1;
+
+		setStripMask(currentPixel);
+	}
 }
 
 
