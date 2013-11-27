@@ -40,6 +40,11 @@ public:
 
 	//How much pixels to jump in on the strip
 	int jumpInterval;
+
+	//upper and lower boundries for wait randomizer 
+	int upperWaitBound;
+	int lowerWaitBound;
+
 protected:
 };
 

@@ -58,26 +58,18 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 			_tprintf(_T("Pixels[1] initialized\n"));
 
 			chaser csr(10, pixels, 2);
-			csr.step();
-			_tprintf(_T("Steped 1\n"));
 
-			for (int i = 0; i < 10; i++)
+			for (int j = 0; j < 100; j++)
 			{
-				//print stripmask
-				_tprintf(TEXT("(%d) r=%d g=%d b=%d\n"), i, csr.stripMask[i].red, csr.stripMask[i].green, csr.stripMask[i].blue);
+				csr.step();
+				_tprintf(TEXT("Steped %d\n"), j);
+
+				for (int i = 0; i < 10; i++)
+				{
+					//print stripmask
+					_tprintf(TEXT("(%d) r=%d g=%d b=%d\n"), i, csr.stripMask[i].red, csr.stripMask[i].green, csr.stripMask[i].blue);
+				}
 			}
-
-
-			csr.step();
-			_tprintf(_T("Steped 2\n"));
-
-			for (int i = 0; i < 10; i++)
-			{
-				//print stripmask
-				_tprintf(TEXT("(%d) r=%d g=%d b=%d\n"), i, csr.stripMask[i].red, csr.stripMask[i].green, csr.stripMask[i].blue);
-			}
-
-
 		}
 	}
 	else

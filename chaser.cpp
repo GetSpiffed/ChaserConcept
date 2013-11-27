@@ -5,6 +5,9 @@
 #include "rgb.h"
 #include "pixel.h"
 
+#include <stdlib.h>
+//#include "cppfix.h"
+
 chaser::chaser(void)
 {
 }
@@ -34,18 +37,7 @@ void chaser::step(void)
 {
 	for (int i = 0; i < _pixelCount; i++)
 	{
-		if (_pixels[i].direction>0)
-		{
-			jump(_pixels[i]);
-		}
-	}
-
-	for (int i = 0; i < _pixelCount; i++)
-	{
-		if (_pixels[i].direction<0)
-		{
-			jump(_pixels[i]);
-		}
+		jump(_pixels[i]);
 	}
 }
 
@@ -61,8 +53,7 @@ void chaser::jump(pixel &currentPixel)
 		{
 			//reset wait
 			currentPixel.waitCounter = 0;
-			currentPixel.waitTicks = 5;
-
+			currentPixel.waitTicks = currentPixel.lowerWaitBound + rand() % currentPixel.upperWaitBound;
 		}
 		//store current location as prevLocation
 		currentPixel.prevPosition = currentPixel.position;
