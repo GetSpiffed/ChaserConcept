@@ -7,21 +7,21 @@
 
 //=================================
 // included dependencies
-#include "rgb.h" //Not using a reference, but an actual object
+#include "Rgb.h" //Not using a reference, but an actual object
 
-class pixel
+class Pixel
 {
 public:
-	pixel(void);
-	pixel(rgb *primaryColor, rgb *secondairyColor, int position, int direction, int jumpInterval);
-	~pixel(void);
+	Pixel(void);
+	Pixel(Rgb *primaryColor, Rgb *secondairyColor, int position, int direction, int jumpInterval);
+	~Pixel(void);
 
 
 	//Color of the pixel to which it jumps to
-	rgb *primaryColor;
+	Rgb *primaryColor;
 
 	//Color of the pixel from which it jumps from
-	rgb *secondairyColor;
+	Rgb *secondairyColor;
 
 	//Direction the pixel moves 1 or -1
 	int direction;

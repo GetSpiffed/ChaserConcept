@@ -1,15 +1,15 @@
-#include "pixel.h"
-#include "rgb.h"
+#include "Pixel.h"
+#include "Rgb.h"
 
-pixel::pixel(void)
+Pixel::Pixel(void)
 {
-	primaryColor = new rgb();
-	secondairyColor = new rgb();
+	primaryColor = new Rgb();
+	secondairyColor = new Rgb();
 	upperWaitBound = 30;
 	lowerWaitBound = 5;
 }
 
-pixel::pixel(rgb *primaryColor, rgb *secondairyColor, int position, int direction, int jumpInterval)
+Pixel::Pixel(Rgb *primaryColor, Rgb *secondairyColor, int position, int direction, int jumpInterval)
 {
 	upperWaitBound = 30;
 	lowerWaitBound = 5;
@@ -24,7 +24,7 @@ pixel::pixel(rgb *primaryColor, rgb *secondairyColor, int position, int directio
 }
 
 
-pixel::~pixel(void)
+Pixel::~Pixel(void)
 {
 }
 

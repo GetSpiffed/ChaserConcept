@@ -3,9 +3,9 @@
 
 #include "stdafx.h"
 #include "ChaserConcept.h"
-#include "rgb.h"
-#include "pixel.h"
-#include "chaser.h"
+#include "RGB.h"
+#include "Pixel.h"
+#include "Chaser.h"
 #include <iostream>
 #include <string>
 
@@ -36,7 +36,7 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 		}
 		else
 		{
-			pixel pixels[2];
+			Pixel pixels[2];
 			_tprintf(_T("Created Pixels\n"));
 
 			//First pixel
@@ -57,7 +57,7 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 			pixels[1].position = 5; //halfway the strip
 			_tprintf(_T("Pixels[1] initialized\n"));
 
-			chaser csr(10, pixels, 2);
+			Chaser csr(10, pixels, 2);
 
 			for (int j = 0; j < 100; j++)
 			{

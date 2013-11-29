@@ -1,49 +1,49 @@
 
 //=================================
 // included dependencies
-#include "chaser.h"
-#include "rgb.h"
-#include "pixel.h"
+#include "Chaser.h"
+#include "RGB.h"
+#include "Pixel.h"
 
 #include <stdlib.h>
-//#include "cppfix.h"
+//#include "CppFix.h"
 
-chaser::chaser(void)
+Chaser::Chaser(void)
 {
 }
 
-chaser::chaser(int stripLength, pixel *pixels, int pixelCount)
+Chaser::Chaser(int stripLength, Pixel *pixels, int pixelCount)
 {
-	_stripLength = stripLength;
-	stripMask = new rgb[_stripLength];
+	Chaser::stripLength = stripLength;
+	stripMask = new Rgb[Chaser::stripLength];
 
-	for (int i = 0; i < _stripLength; i++)
+	for (int i = 0; i < Chaser::stripLength; i++)
 	{
 		stripMask[i].red = 0;
 		stripMask[i].green = 0;
 		stripMask[i].blue = 0;
 	}
 
-	_pixelCount = pixelCount;
-	_pixels = new pixel[_pixelCount];
+	Chaser::pixelCount = pixelCount;
+	Chaser::pixels = new Pixel[Chaser::pixelCount];
 
 
-	for (int i = 0; i < _pixelCount; i++)
-		_pixels[i] = pixels[i];
+	for (int i = 0; i < Chaser::pixelCount; i++)
+		Chaser::pixels[i] = pixels[i];
 
 }
 
-void chaser::step(void)
+void Chaser::step(void)
 {
-	for (int i = 0; i < _pixelCount; i++)
+	for (int i = 0; i < Chaser::pixelCount; i++)
 	{
-		jump(_pixels[i]);
+		jump(Chaser::pixels[i]);
 	}
 }
 
-void chaser::jump(pixel &currentPixel)
+void Chaser::jump(Pixel &currentPixel)
 {
-	if ((currentPixel.position < 0 || currentPixel.position >= _stripLength) && currentPixel.waitCounter != currentPixel.waitTicks)
+	if ((currentPixel.position < 0 || currentPixel.position >= Chaser::stripLength) && currentPixel.waitCounter != currentPixel.waitTicks)
 	{
 		currentPixel.waitCounter++;
 	}
@@ -62,7 +62,7 @@ void chaser::jump(pixel &currentPixel)
 		currentPixel.position += currentPixel.direction*currentPixel.jumpInterval;
 
 		//If outside boundries, revert direction
-		if (currentPixel.position < 0 || currentPixel.position >= _stripLength)
+		if (currentPixel.position < 0 || currentPixel.position >= Chaser::stripLength)
 			currentPixel.direction = currentPixel.direction*-1;
 
 		setStripMask(currentPixel);
@@ -70,10 +70,10 @@ void chaser::jump(pixel &currentPixel)
 }
 
 
-void chaser::setStripMask(pixel &currentPixel)
+void Chaser::setStripMask(Pixel &currentPixel)
 {
 	//If position within boundries, set stripMask
-	if (currentPixel.position >= 0 && currentPixel.position < _stripLength)
+	if (currentPixel.position >= 0 && currentPixel.position < Chaser::stripLength)
 	{
 		//Draw main pixel
 		stripMask[currentPixel.position].red = currentPixel.primaryColor->red;
@@ -83,7 +83,7 @@ void chaser::setStripMask(pixel &currentPixel)
 
 
 	//If prevPosition within boundries, set stripMask
-	if (currentPixel.prevPosition >= 0 && currentPixel.prevPosition < _stripLength)
+	if (currentPixel.prevPosition >= 0 && currentPixel.prevPosition < Chaser::stripLength)
 	{
 		//Draw prevPosition
 		stripMask[currentPixel.prevPosition].red = currentPixel.secondairyColor->red;
@@ -92,10 +92,10 @@ void chaser::setStripMask(pixel &currentPixel)
 	}
 }
 
-chaser::~chaser(void)
+Chaser::~Chaser(void)
 {
-	delete[] _pixels;        // important to prevent memory leaks use brackets, 
+	delete[] Chaser::pixels;        // important to prevent memory leaks use brackets, 
 	//the delete command withoud brackets just deletes the first element
 
-	_pixels = 0;   // even if the pointer no longer exists . . . 
+	Chaser::pixels = 0;   // even if the pointer no longer exists . . . 
 }

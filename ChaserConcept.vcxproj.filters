@@ -30,33 +30,12 @@
     <ClInclude Include="ChaserConcept.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rgb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="chaser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="pixel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cppfix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ChaserConcept.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rgb.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="chaser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pixel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

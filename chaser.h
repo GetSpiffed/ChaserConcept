@@ -5,19 +5,19 @@
 
 //=================================
 // included dependencies
-#include "rgb.h"
-#include "pixel.h"
+#include "RGB.h"
+#include "Pixel.h"
 
 
 #pragma once
-class chaser
+class Chaser
 {
 public:
 	/********************************************************************
 	* Constructors
 	********************************************************************/
-	chaser(void);
-	chaser(int stripLength, pixel *pixels, int pixelCount);
+	Chaser(void);
+	Chaser(int stripLength, Pixel *pixels, int pixelCount);
 
 	/********************************************************************
 	* Methods
@@ -27,23 +27,23 @@ public:
 	/********************************************************************
 	* Destructors
 	********************************************************************/
-	~chaser(void);
+	~Chaser(void);
 
 	//pointer to the array on witch we draw the pixels
-	rgb *stripMask;
+	Rgb *stripMask;
 
 	//pointer to array with the moving pixels
-	pixel *_pixels;
+	Pixel *pixels;
 
 protected:
 
 
-	int _pixelCount;
+	int pixelCount;
 
-	int _stripLength;
+	int stripLength;
 
-	void jump(pixel &currentPixel);
-	void setStripMask(pixel &currentPixel);
+	void jump(Pixel &currentPixel);
+	void setStripMask(Pixel &currentPixel);
 };
 
 #endif // __MYCLASS_H_INCLUDED__ 
