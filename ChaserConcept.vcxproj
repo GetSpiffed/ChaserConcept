@@ -83,25 +83,24 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chaser.h" />
     <ClInclude Include="ChaserConcept.h" />
+    <ClInclude Include="CppFix.h" />
+    <ClInclude Include="Pixel.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Rgb.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Chaser.cpp" />
     <ClCompile Include="ChaserConcept.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="Pixel.cpp" />
+    <ClCompile Include="Rgb.cpp" />
+    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ChaserConcept.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="P3PixelLib\P3PixelLib.vcxproj">
-      <Project>{62d0f94a-d198-41fd-9929-637ee86c42fd}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

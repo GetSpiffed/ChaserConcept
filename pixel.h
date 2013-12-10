@@ -13,7 +13,7 @@ class Pixel
 {
 public:
 	Pixel(void);
-	Pixel(Rgb *primaryColor, Rgb *secondairyColor, int position, int direction, int jumpInterval);
+	Pixel(Rgb *primaryColor, Rgb *secondairyColor, uint8_t position, uint8_t direction, uint8_t jumpInterval);
 	~Pixel(void);
 
 
@@ -24,22 +24,28 @@ public:
 	Rgb *secondairyColor;
 
 	//Direction the pixel moves 1 or -1
-	int direction;
+	uint8_t direction;
 
 	//position of the pixel
-	int position;
+	uint8_t position;
 
 	//previous position of the pixel
-	int prevPosition;
+	uint8_t prevPosition;
 
 	//ticks to wait before moving
 	int waitTicks;
 
-	//count how many ticks sre waited
+	//count how many ticks has been waited
 	int waitCounter;
 
-	//How much pixels to jump in on the strip
-	int jumpInterval;
+	//How much pixels to jump on the strip
+	uint8_t jumpStepInterval;
+
+	//How much ticks to wait before jump
+	uint8_t  jumpTickInterval;
+
+	//count how many ticks has been waited
+	uint8_t jumpTickCounter;
 
 	//upper and lower boundries for wait randomizer 
 	int upperWaitBound;

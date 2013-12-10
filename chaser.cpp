@@ -12,7 +12,7 @@ Chaser::Chaser(void)
 {
 }
 
-Chaser::Chaser(int stripLength, Pixel *pixels, int pixelCount)
+Chaser::Chaser(uint8_t stripLength, Pixel *pixels, uint8_t pixelCount)
 {
 	Chaser::stripLength = stripLength;
 	stripMask = new Rgb[Chaser::stripLength];
@@ -47,8 +47,18 @@ void Chaser::jump(Pixel &currentPixel)
 	{
 		currentPixel.waitCounter++;
 	}
+	else if (currentPixel.jumpTickCounter<currentPixel.jumpTickInterval)
+	{
+		currentPixel.jumpTickCounter++;
+	}
 	else
 	{
+		if (currentPixel.jumpTickInterval >0 && currentPixel.jumpTickCounter == currentPixel.jumpTickInterval)
+		{
+			//reset jumpTickCounter
+			currentPixel.jumpTickCounter = 0;
+		}
+
 		if (currentPixel.waitCounter == currentPixel.waitTicks)
 		{
 			//reset wait
@@ -59,7 +69,7 @@ void Chaser::jump(Pixel &currentPixel)
 		currentPixel.prevPosition = currentPixel.position;
 
 		//Set new location
-		currentPixel.position += currentPixel.direction*currentPixel.jumpInterval;
+		currentPixel.position += currentPixel.direction*currentPixel.jumpStepInterval;
 
 		//If outside boundries, revert direction
 		if (currentPixel.position < 0 || currentPixel.position >= Chaser::stripLength)

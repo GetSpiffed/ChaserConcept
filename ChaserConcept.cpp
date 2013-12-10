@@ -44,7 +44,7 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 			pixels[0].primaryColor->green = 0;
 			pixels[0].primaryColor->blue = 0;
 			pixels[0].direction = 1;//going forward
-			pixels[0].jumpInterval = 1;
+			pixels[0].jumpStepInterval = 1;
 			pixels[0].position = -1; //one before the start of the strip
 			_tprintf(_T("Pixels[0] initialized\n"));
 
@@ -53,7 +53,7 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 			pixels[1].primaryColor->green = 0;
 			pixels[1].primaryColor->blue = 0;
 			pixels[1].direction = -1; //going backward
-			pixels[1].jumpInterval = 1;
+			pixels[1].jumpStepInterval = 1;
 			pixels[1].position = 5; //halfway the strip
 			_tprintf(_T("Pixels[1] initialized\n"));
 

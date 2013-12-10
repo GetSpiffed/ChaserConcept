@@ -7,10 +7,13 @@ Pixel::Pixel(void)
 	secondairyColor = new Rgb();
 	upperWaitBound = 30;
 	lowerWaitBound = 5;
+	jumpTickInterval = 0;
+	jumpTickCounter = 0;
 }
 
-Pixel::Pixel(Rgb *primaryColor, Rgb *secondairyColor, int position, int direction, int jumpInterval)
+Pixel::Pixel(Rgb *primaryColor, Rgb *secondairyColor, uint8_t position, uint8_t direction, uint8_t jumpStepInterval)
 {
+	jumpTickInterval = 0;
 	upperWaitBound = 30;
 	lowerWaitBound = 5;
 	waitCounter = 0;
@@ -19,8 +22,9 @@ Pixel::Pixel(Rgb *primaryColor, Rgb *secondairyColor, int position, int directio
 	secondairyColor = secondairyColor;
 	position = position;
 	direction = direction;
-	jumpInterval = jumpInterval;
-	prevPosition = position + (((-1)*direction)*jumpInterval);
+	jumpStepInterval = jumpStepInterval;
+	prevPosition = position + (((-1)*direction)*jumpStepInterval);
+	jumpTickCounter = 0;
 }
 
 

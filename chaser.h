@@ -17,7 +17,7 @@ public:
 	* Constructors
 	********************************************************************/
 	Chaser(void);
-	Chaser(int stripLength, Pixel *pixels, int pixelCount);
+	Chaser(uint8_t stripLength, Pixel *pixels, uint8_t pixelCount);
 
 	/********************************************************************
 	* Methods
@@ -38,9 +38,8 @@ public:
 protected:
 
 
-	int pixelCount;
-
-	int stripLength;
+	uint8_t pixelCount;
+	uint8_t stripLength;
 
 	void jump(Pixel &currentPixel);
 	void setStripMask(Pixel &currentPixel);
