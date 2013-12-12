@@ -9,6 +9,7 @@ Pixel::Pixel(void)
 	lowerWaitBound = 5;
 	jumpTickInterval = 0;
 	jumpTickCounter = 0;
+	pixelType = 0;
 }
 
 Pixel::Pixel(Rgb *primaryColor, Rgb *secondairyColor, uint8_t position, uint8_t direction, uint8_t jumpStepInterval)
@@ -25,6 +26,7 @@ Pixel::Pixel(Rgb *primaryColor, Rgb *secondairyColor, uint8_t position, uint8_t 
 	jumpStepInterval = jumpStepInterval;
 	prevPosition = position + (((-1)*direction)*jumpStepInterval);
 	jumpTickCounter = 0;
+	pixelType = 0;
 }
 
 

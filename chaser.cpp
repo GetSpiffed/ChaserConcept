@@ -45,6 +45,7 @@ void Chaser::jump(Pixel &currentPixel)
 {
 	if ((currentPixel.position < 0 || currentPixel.position >= Chaser::stripLength) && currentPixel.waitCounter != currentPixel.waitTicks)
 	{
+		//Pixel is not on the strip and counter is not at max value
 		currentPixel.waitCounter++;
 	}
 	else if (currentPixel.jumpTickCounter<currentPixel.jumpTickInterval)
@@ -64,6 +65,12 @@ void Chaser::jump(Pixel &currentPixel)
 			//reset wait
 			currentPixel.waitCounter = 0;
 			currentPixel.waitTicks = currentPixel.lowerWaitBound + rand() % currentPixel.upperWaitBound;
+			if (currentPixel.pixelType == 1)
+			{
+				currentPixel.primaryColor->red = (rand() % (255 - 0) + 0);
+				currentPixel.primaryColor->blue = (rand() % (255 - 0) + 0);
+				currentPixel.primaryColor->green = (rand() % (255 - 0) + 0);
+			}
 		}
 		//store current location as prevLocation
 		currentPixel.prevPosition = currentPixel.position;
