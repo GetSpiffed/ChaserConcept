@@ -5,7 +5,7 @@
 
 //=================================
 // included dependencies
-#include "RGB.h"
+#include "Rgb.h"
 #include "Pixel.h"
 
 

@@ -67,9 +67,19 @@ void Chaser::jump(Pixel &currentPixel)
 			currentPixel.waitTicks = currentPixel.lowerWaitBound + rand() % currentPixel.upperWaitBound;
 			if (currentPixel.pixelType == 1)
 			{
-				currentPixel.primaryColor->red = (rand() % (255 - 0) + 0);
-				currentPixel.primaryColor->blue = (rand() % (255 - 0) + 0);
-				currentPixel.primaryColor->green = (rand() % (255 - 0) + 0);
+				Rgb newColor = currentPixel.GetNextColor(currentPixel.colorPointer);
+				//currentPixel.primaryColor->red = newColor.red;
+				//currentPixel.primaryColor->blue = newColor.blue;
+				//currentPixel.primaryColor->green = newColor.green;
+
+				//if (currentPixel.colorPointer >= 255)
+				//{
+				//	currentPixel.colorPointer = 0;
+				//}
+				//else
+				//{
+				//	currentPixel.colorPointer++;
+				//}
 			}
 		}
 		//store current location as prevLocation

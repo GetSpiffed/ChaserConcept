@@ -16,6 +16,8 @@ public:
 	Pixel(Rgb *primaryColor, Rgb *secondairyColor, uint8_t position, uint8_t direction, uint8_t jumpInterval);
 	~Pixel(void);
 
+	Rgb GetNextColor(uint8_t colorPointer);
+
 
 	//Color of the pixel to which it jumps to
 	Rgb *primaryColor;
@@ -54,27 +56,9 @@ public:
 	//determines behaviour of the pixel 0=default 1=fixedtail...
 	uint8_t pixelType;
 
-	Rgb GetNextColor(uint8_t currentPos)
-	{
-		//Neopixel wheel implementation
-		/*
+	uint8_t colorPointer;
 
-		// Input a value 0 to 255 to get a color value.
-		// The colours are a transition r - g - b - back to r.
-		uint32_t Wheel(byte WheelPos) {
-			if(WheelPos < 85) {
-			return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
-			} else if(WheelPos < 170) {
-			WheelPos -= 85;
-			return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
-			} else {
-			WheelPos -= 170;
-			return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
-			}
-		}
-		*/
 
-	}
 protected:
 };
 
