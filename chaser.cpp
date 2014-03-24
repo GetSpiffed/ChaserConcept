@@ -68,18 +68,18 @@ void Chaser::jump(Pixel &currentPixel)
 			if (currentPixel.pixelType == 1)
 			{
 				Rgb newColor = currentPixel.GetNextColor(currentPixel.colorPointer);
-				//currentPixel.primaryColor->red = newColor.red;
-				//currentPixel.primaryColor->blue = newColor.blue;
-				//currentPixel.primaryColor->green = newColor.green;
+				currentPixel.primaryColor->red = newColor.red;
+				currentPixel.primaryColor->blue = newColor.blue;
+				currentPixel.primaryColor->green = newColor.green;
 
-				//if (currentPixel.colorPointer >= 255)
-				//{
-				//	currentPixel.colorPointer = 0;
-				//}
-				//else
-				//{
-				//	currentPixel.colorPointer++;
-				//}
+				if (currentPixel.colorPointer >= 255)
+				{
+					currentPixel.colorPointer = 0;
+				}
+				else
+				{
+					currentPixel.colorPointer++;
+				}
 			}
 		}
 		//store current location as prevLocation
