@@ -13,17 +13,16 @@ class Pixel
 {
 public:
 	Pixel(void);
-	Pixel(Rgb *primaryColor, Rgb *secondairyColor, uint8_t position, uint8_t direction, uint8_t jumpInterval);
+	Pixel(uint32_t *primaryColor, uint32_t *secondairyColor, uint8_t position, uint8_t direction, uint8_t jumpInterval);
 	~Pixel(void);
 
-	Rgb GetNextColor(uint8_t colorPointer);
 
 
 	//Color of the pixel to which it jumps to
-	Rgb *primaryColor;
+	uint32_t primaryColor;
 
 	//Color of the pixel from which it jumps from
-	Rgb *secondairyColor;
+	uint32_t secondairyColor;
 
 	//Direction the pixel moves 1 or -1
 	uint8_t direction;

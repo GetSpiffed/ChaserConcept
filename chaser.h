@@ -5,7 +5,6 @@
 
 //=================================
 // included dependencies
-#include "Rgb.h"
 #include "Pixel.h"
 
 
@@ -23,6 +22,9 @@ public:
 	* Methods
 	********************************************************************/
 	void step(void);
+	uint32_t GetNextColor(uint8_t colorPointer);
+	uint32_t Color(uint8_t r, uint8_t g, uint8_t b);
+
 
 	/********************************************************************
 	* Destructors
@@ -30,7 +32,7 @@ public:
 	~Chaser(void);
 
 	//pointer to the array on witch we draw the pixels
-	Rgb *stripMask;
+	uint32_t *stripMask;
 
 	//pointer to array with the moving pixels
 	Pixel *pixels;
